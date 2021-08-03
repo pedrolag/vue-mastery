@@ -3,9 +3,11 @@ var app = new Vue({
     data: {
         product: {
             id: 0,
+            brand: "Vue Mastery",
             name: "Socks",
             inStock: true,
             variant: 0,
+            size: "M",
             variants: [
                 {
                     variantId: 2234,
@@ -30,6 +32,11 @@ var app = new Vue({
         },
         cart: {
             items: []
+        }
+    },
+    computed: {
+        productTitle() {
+            return `${this.product.brand} ${this.product.name}`;
         }
     },
     methods: {
@@ -59,11 +66,26 @@ var app = new Vue({
         },
 
         /**
+         * Changes the size of the product
+         * depending on the size that 
+         * is selected by the user
+         * 
+         * @param {number} size - id of the selected size
+         */
+         changeProductSize(size) {
+            this.product.size = size;
+        },
+
+        /**
          * Adds the product into the user's cart item list
          * 
          * @param {Object} product - selected product
          */
         addProductToCart(product) {
+            if (!product.inStock) {
+                alert(`The product "${product.name}" can not be added to your cart since it is out of stock.`);
+                return;
+            }
             this.cart.items.push(product);
         }
 

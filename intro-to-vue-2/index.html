@@ -31,7 +31,7 @@
                 <div class="product__information">
 
                     <!-- Name -->
-                    <h1 class="product__name">{{ product.name }}</h1>
+                    <h1 class="product__name">{{ productTitle }}</h1>
                     
                     <!-- Stock status -->
                     <p 
@@ -61,6 +61,8 @@
                             <div
                                 v-for="size in product.sizes"
                                 class="product__sizes-item"
+                                :class="{'product__sizes-item--selected': product.size === size}"
+                                @click="changeProductSize(size)"
                             >
                                 <p class="product__sizes-item-text">{{ size }}</p>
                             </div>
@@ -92,7 +94,9 @@
                     <!-- Add item to cart -->
                     <button 
                         class="button button--primary"
-                        @click="addProductToCart"
+                        :class="{'button--disabled': !product.inStock}"
+                        @click="addProductToCart(product)"
+                        :disabled="!product.inStock"
                     >Add to cart</button>
 
                     <!-- User's cart -->
