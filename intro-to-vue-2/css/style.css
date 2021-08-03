@@ -101,6 +101,14 @@
     margin: 0 0 0 20px;
 }
 
+.product__shipping {
+    margin: 16px 0 0 0;
+}
+
+.product__shipping-text {
+    margin: 0;
+}
+
 .product__sizes {
     margin: 16px 0 0 0;
 }
