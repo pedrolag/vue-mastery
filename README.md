@@ -7,4 +7,4 @@ In this project I'll be publishing all the projects/exercises that I've done wit
 
 ## Courses
 
-[ ] Intro to Vue 2
+- [ ] Intro to Vue 2
