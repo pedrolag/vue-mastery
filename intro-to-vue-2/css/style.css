@@ -5,6 +5,38 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.button {
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    padding: 0 16px;
+    border-radius: 2px;
+    background: #eee;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: .2s;
+    border: solid 1px transparent;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button--primary {
+    background: rgb(50, 150, 255);
+    color: #fff;
+}
+
+.button--primary:hover {
+    background: rgb(112, 181, 255);
+}
+
+.button--secondary {
+    background: rgb(255, 255, 255);
+    color: #111;
+    border-color: #aaa;
+}
+
 .nav-bar {
     width: 100%;
     height: 64px;
@@ -17,6 +49,10 @@
     justify-content: flex-start;
 }
 
+.product__right-container {
+    padding: 8px;
+}
+
 .product__image-container {
     max-width: 400px;
 }
@@ -26,7 +62,7 @@
 }
 
 .product__information {
-    padding: 8px;
+
 }
 
 .product__name {
@@ -49,4 +85,64 @@
 
 .product__stock-status--in {
     background: #42b883;
+}
+
+.product__details {
+    margin: 16px 0 0 0;
+}
+
+.product__details-item {
+    margin: 0 0 0 20px;
+}
+
+.product__sizes {
+    margin: 16px 0 0 0;
+}
+
+.product__sizes-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.product__sizes-item {
+    width: 24px;
+    height: 24px;
+    border: solid 1px #aaa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+}
+
+.product__sizes-item-text {
+    margin: 0;
+    font-weight: bold;
+}
+
+.product__variants {
+    margin: 16px 0 0 0;
+}
+
+.product__variants-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.product__variants-list:hover {
+    cursor: pointer;
+}
+
+.product__variants-color {
+    width: 24px;
+    height: 24px;
+    border: solid 1px #aaa;
+    border-radius: 8px;
+    margin-right: 6px;
+}
+
+.product__actions {
+    margin: 16px 0 0 0;
 }

@@ -12,22 +12,100 @@
     <div class="nav-bar"></div>
 
     <div id="app">
+
+        <!-- Product -->
         <div class="product">
-            <div class="product__image-container">
-                <img class="product__image" :src="image">
+
+            <div class="product__left-container">
+
+                <!-- Image -->
+                <div class="product__image-container">
+                    <img class="product__image" :src="product.image">
+                </div>
+
             </div>
-            <div class="product__information">
-                <h1 class="product__name">{{ product }}</h1>
-                <p 
-                    class="product__stock-status product__stock-status--out" 
-                    v-if="stock_status_code == 0"
-                >Out of stock</p>
-                <p 
-                    class="product__stock-status product__stock-status--in"
-                    v-else-if="stock_status_code == 1"
-                >In stock</p>
+
+            <div class="product__right-container">
+
+                <!-- Information -->
+                <div class="product__information">
+
+                    <!-- Name -->
+                    <h1 class="product__name">{{ product.name }}</h1>
+                    
+                    <!-- Stock status -->
+                    <p 
+                        v-if="!product.inStock"
+                        class="product__stock-status product__stock-status--out" 
+                    >Out of stock</p>
+                    <p 
+                        v-else-if="product.inStock"
+                        class="product__stock-status product__stock-status--in"
+                    >In stock</p>
+
+                    <!-- Details -->
+                    <div class="product__details">
+                        <h2>Details</h2>
+                        <ul>
+                            <li 
+                                v-for="detail in product.details"
+                                class="product__details-item"
+                            >{{ detail }}</li>
+                        </ul>
+                    </div>
+
+                    <!-- Sizes -->
+                    <div class="product__sizes">
+                        <h2>Sizes</h2>
+                        <div class="product__sizes-list">
+                            <div
+                                v-for="size in product.sizes"
+                                class="product__sizes-item"
+                            >
+                                <p class="product__sizes-item-text">{{ size }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Variants -->
+                    <div class="product__variants">
+                        <h2>Variants</h2>
+                        <div class="product__variants-list">
+                            <div
+                                v-for="variant in product.variants"
+                                @click="changeProductVariant(variant.variantId)"
+                                class="product__variants-item"
+                            >
+                                <div
+                                    class="product__variants-color"
+                                    :style="{backgroundColor: variant.variantColor}"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Actions -->
+                <div class="product__actions">
+
+                    <!-- Add item to cart -->
+                    <button 
+                        class="button button--primary"
+                        @click="addProductToCart"
+                    >Add to cart</button>
+
+                    <!-- User's cart -->
+                    <button
+                        class="button button--secondary"
+                    >cart {{ cart.items.length > 0 ? "(" + cart.items.length + ")" : null }}</button>
+                
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
