@@ -1,6 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
-        product: 'Socks'
+        product: 'Socks',
+        image: './assets/vmSocks-green.jpg',
+        stock_status_code: 0
     }
 });

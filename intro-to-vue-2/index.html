@@ -5,11 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produc App</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 
+    <div class="nav-bar"></div>
+
     <div id="app">
-        <h1>{{ product }}</h1>
+        <div class="product">
+            <div class="product__image-container">
+                <img class="product__image" :src="image">
+            </div>
+            <div class="product__information">
+                <h1 class="product__name">{{ product }}</h1>
+                <p 
+                    class="product__stock-status product__stock-status--out" 
+                    v-if="stock_status_code == 0"
+                >Out of stock</p>
+                <p 
+                    class="product__stock-status product__stock-status--in"
+                    v-else-if="stock_status_code == 1"
+                >In stock</p>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
