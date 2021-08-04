@@ -9,12 +9,19 @@
 </head>
 <body>
 
-    <div class="nav-bar"></div>
-
     <div id="app">
+            
+        <div class="nav-bar">
+            <object data="./assets/vuemastery-white.svg" height="40"></object>
+            <button
+                class="button button--secondary"
+            >{{ cartLabel }}</button>
+        </div>
 
-        <product :free-shipping="premiumUser"></product>
-        <product :free-shipping="false"></product>
+        <product
+            :free-shipping="premiumUser"
+            @add-to-cart="addProductToCart"
+        ></product>
 
     </div>
 

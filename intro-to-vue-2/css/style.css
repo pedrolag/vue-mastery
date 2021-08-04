@@ -3,6 +3,7 @@
     padding: 0;
     font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
 }
 
 .button {
@@ -37,6 +38,10 @@
     background: rgb(112, 181, 255);
 }
 
+.button--primary:active {
+    background: rgb(1, 62, 128);
+}
+
 .button--secondary {
     background: rgb(255, 255, 255);
     color: #111;
@@ -46,21 +51,38 @@
 .nav-bar {
     width: 100%;
     height: 64px;
-    background: linear-gradient(45deg, #42b883, #82ce5e)
+    background: #222;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
 }
 
 .product {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product__top-container {
+    display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .product__right-container {
     padding: 8px;
+    margin: 0 0 0 24px;
 }
 
 .product__image-container {
-    max-width: 400px;
+    max-width: 300px;
+    padding: 16px;
+    border: solid 1px #dedede;
+    border-radius: 8px;
+    margin: 24px 0 0 0;
 }
 
 .product__image {
@@ -170,4 +192,16 @@
 
 .product__actions {
     margin: 16px 0 0 0;
+}
+
+.product__review-label {
+    display: block;
+}
+
+.product__review-radio {
+    margin: 0 12px 0 0;
+}
+
+.product__review-input-field {
+    margin-bottom: 16px;
 }
