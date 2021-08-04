@@ -1,60 +1,66 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-card width="400" class="mx-auto mt-5">
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <!-- Card header -->
+      <v-card-title>
+        <h1 class="display-1">Login</h1>
+      </v-card-title>
 
-      <v-spacer></v-spacer>
+      <!-- Card body -->
+      <v-card-text>
+        <v-form>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+          <!-- Username input -->
+          <v-text-field
+            label="Username"
+            type="text"
+            prepend-icon="mdi-account-circle"
+          />
 
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+          <!-- Password input -->
+          <v-text-field 
+            :type="showPassword ? 'text' : 'password'"
+            label="Password"
+            prepend-icon="mdi-lock"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showPassword = !showPassword"
+          />
+
+        </v-form>
+      </v-card-text>
+
+      <v-divider></v-divider>
+
+      <!-- Card footer -->
+      <v-card-actions>
+
+        <!-- Register button -->
+        <v-btn
+          color="success"
+        >Register</v-btn>
+
+        <v-spacer></v-spacer>
+
+        <!-- Login button -->
+        <v-btn
+          color="info"
+        >Login</v-btn>
+
+      </v-card-actions>
+
+    </v-card>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
 
-  components: {
-    HelloWorld,
-  },
+  components: {},
 
   data: () => ({
-    //
+    showPassword: false
   }),
 };
 </script>
